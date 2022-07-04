@@ -3,15 +3,21 @@ host: 0.0.0.0
 port: 7125
 enable_debug_logging: False
 config_path: ~/klipper_config
-log_path: ~/klipper_logs
 
 [authorization]
 cors_domains:
-    http://io-broker
+    https://my.mainsail.xyz
+    http://my.mainsail.xyz
+    http://*.local
+    http://*.lan
 trusted_clients:
     10.0.0.0/8
     127.0.0.0/8
-    192.168.2.0/24
+    169.254.0.0/16
+    172.16.0.0/12
+    192.168.0.0/16
+    FE80::/10
+    ::1/128
 
 # enables partial support of Octoprint API
 [octoprint_compat]
@@ -26,11 +32,3 @@ trusted_clients:
 type: web
 repo: mainsail-crew/mainsail
 path: ~/mainsail
-
-[file_manager]
-config_path: ~/klipper_config
-log_path: /tmp
-
-[data_store]
-temperature_store_size: 600
-gcode_store_size: 1000
